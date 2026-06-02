@@ -34,10 +34,10 @@ public class Main {
                      sv.xuatDs();
                     break;
                 case 3:
-                
+                        sv.timKiem();
                     break;
                 case 4:
-                   
+                   sv.xoaSV();
                     break;
                 case 5:
                     

@@ -37,10 +37,11 @@ public class SinhVienSERVICE {
     //CÁCH FIX CỨNG DỮ LIỆU, KHI MÀ CHẠY PROJECT LÀ _lstSV đã lưu trữ dữ liệu rồi
     public void FakeData(){
         _lstSV.add(new SinhVien(6,"12356","NGuyễn An",2009,"nữ"));
-        _lstSV.add(new SinhVien(8,"12356","NGuyễn B",2009,"nAM"));
-        _lstSV.add(new SinhVien(9,"12356","NGuyễn C",2009,"nAM"));
-        _lstSV.add(new SinhVien(2,"12356","NGuyễn D",2009,"nữ"));
+        _lstSV.add(new SinhVien(8,"abc","NGuyễn B",2009,"nAM"));
+        _lstSV.add(new SinhVien(9,"xyz","NGuyễn C",2009,"nAM"));
+        _lstSV.add(new SinhVien(2,"abcxyz","NGuyễn D",2009,"nữ"));
     }
+    //chức năng xuất thông tin
     public void xuatDs(){
         for(SinhVien sv : _lstSV){
             sv.InThongTin();
@@ -78,4 +79,39 @@ public class SinhVienSERVICE {
             
         }while(luachon.equals("Y"));
     }
+    
+    //chức năng tìm kiếm theo chứng minh thứ
+    public void timKiem(){
+        System.out.println("Mời bạn nhập cmt cần tìm: ");
+        _input = sc.nextLine();
+        //get(i): lấy thông tin sinh viên thứ i
+        //getcmt(): lấy ra dữ liệu cmt của sinh viên thứ i được lấy ở trên
+        for(int i=0; i< _lstSV.size(); i++){
+            if(_lstSV.get(i).getCmt().equals(_input))
+            {
+                _lstSV.get(i).InThongTin();
+                return;
+            }
+        }
+        System.out.println("Không thấy đối tượng cần tìm");
+        
+    }
+    
+    //chức năng xóa sinh viên theo cmt
+    public void xoaSV(){
+          
+       System.out.println("Moi ban nhap cmt cần XÓA");
+       _input= sc.nextLine();
+       for(int i=0; i< _lstSV.size(); i++){
+          if( _lstSV.get(i).getCmt().equals(_input))
+          {
+              _lstSV.remove(i);
+              System.out.println("đã xóa thành công");
+              return;
+          }
+       }
+        System.out.println("Không tìm thấy đối tượng cần xóa");
+    }
+    
+    
 }
